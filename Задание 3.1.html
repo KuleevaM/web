@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Конвертация шестнадцатеричного числа в десятичное</title>
+</head>
+<body>
+    <h2>Преобразование шестнадцатеричного числа в десятичное</h2>
+    <label for="hexInput">Введите шестнадцатеричное число:</label>
+    <input type="text" id="hexInput" placeholder="Например, 1A3F" />
+    <button onclick="convertHexToDecimal()">Преобразовать</button>
+    <p>Десятичное значение: <span id="result"></span></p>
+
+    <script>
+        function convertHexToDecimal() {
+            const hexValue = document.getElementById('hexInput').value.trim();
+            if (!hexValue) {
+                document.getElementById('result').textContent = 'Пожалуйста, введите число.';
+                return;
+            }
+            try {
+                // Преобразование из шестнадцатеричной системы в десятичную
+                const decimalValue = parseInt(hexValue, 16);
+                if (isNaN(decimalValue)) {
+                    document.getElementById('result').textContent = 'Некорректное шестнадцатеричное число.';
+                } else {
+                    document.getElementById('result').textContent = decimalValue;
+                }
+            } catch (e) {
+                document.getElementById('result').textContent = 'Ошибка при преобразовании.';
+            }
+        }
+    </script>
+</body>
+</html>
