@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+                margin: 40px;
+            }
+
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                max-width: 400px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+            }
+
+            label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+
+            button {
+                background-color: #28a745;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+                background-color: #218838;
+            }
+
+            div {
+                max-width: 400px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            p {
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 15px;
+                color: #333;
+            }
+
+            ul#orders {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            ul#orders li {
+                padding: 8px 0;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 16px;
+                color: #555;
+            }
+
+            ul#orders li:last-child {
+                border-bottom: none;
+            }
+
+            ul#orders li input[type="checkbox"] {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <label for="name">Название пиццы</label> <br/>
+            <input type="text" placeholder="Название пиццы"
+            id="name"> <br/>
+
+            <button id="add" onclick="add()" type="button">Добавить</button>
+        </form>
+
+        <div>
+            <p>Заказы</p>
+
+            <ul id="orders">
+                <li>Четыре сезона<input type="checkbox"></li>
+                <li>Маргарита<input type="checkbox"></li>
+                <li>Сырная<input type="checkbox"></li>
+            </ul>
+        </div>
+
+        <script>
+            let nameInput = document.getElementById('name');
+
+            function add() {
+                console.log(nameInput.value)
+            }
+        </script>
+    </body>
+</html>
