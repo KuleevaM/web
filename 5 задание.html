@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+    body {
+        font-family: monospace, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    #MagicalButton {
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #MagicalButton:hover {
+        background-color: #45a049;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        font-family: monospace, sans-serif;
+        font-size: 1.2em;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+        transition: background-color 0.3s, box-shadow 0.3s, width 0.3s, height 0.3s;
+        text-align: center;
+    }
+
+    .box:hover {
+        box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
+    }
+
+    #clickCount {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<p>Магическая кнопка</p>
+<button id="MagicalButton">Нажми на меня!</button>
+<div id="CB" class="box">Голубой</div>
+<div id="clickCount">Количество нажатий: 0</div>
+
+<script>
+    const button = document.getElementById('MagicalButton');
+    const box = document.getElementById('CB');
+    const clickCountDisplay = document.getElementById('clickCount');
+
+    const colors = [
+        {color: 'lightblue', text: 'Голубой', width: '200px', height: '200px'},
+        {color: 'tomato', text: 'Красный', width: '250px', height: '150px'},
+        {color: 'mediumseagreen', text: 'Зеленый', width: '180px', height: '220px'}
+    ];
+
+    let clickCount = 0;
+    let colorIndex = 0;
+
+    button.addEventListener('click', function() {
+        clickCount++;
+        clickCountDisplay.textContent = 'Количество нажатий: ' + clickCount;
+
+        colorIndex = (colorIndex + 1) % colors.length;
+        const current = colors[colorIndex];
+
+        box.style.backgroundColor = current.color;
+        box.textContent = current.text;
+        box.style.width = current.width;
+        box.style.height = current.height;
+    });
+</script>
+</body>
+</html>
